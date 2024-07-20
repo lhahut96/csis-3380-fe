@@ -1,10 +1,10 @@
-import { Button } from "@arco-design/web-react";
+import { DatePicker } from "antd";
 // import "./App.css";
 
 function App() {
   return (
     <>
-      <Button type='primary'>Test</Button>
+      <DatePicker />
     </>
   );
 }
