@@ -1,11 +1,25 @@
-import { DatePicker } from "antd";
+import { ConfigProvider, DatePicker } from "antd";
+import Login from "./pages/login";
 // import "./App.css";
 
 function App() {
   return (
-    <>
-      <DatePicker />
-    </>
+    <ConfigProvider
+    theme={{
+      token: {
+        // Seed Token
+        colorPrimary: '#262626',
+        borderRadius: 8,
+      },
+      components: {
+        Input: {
+          activeShadow: "transparent"
+        }
+      }
+    }}
+  >
+      <Login />
+    </ConfigProvider>
   );
 }
 
