@@ -1,10 +1,12 @@
-import { DatePicker } from "antd";
+// import { DatePicker } from "antd";
+import Creating from "./pages/creating.jsx"
 // import "./App.css";
 
 function App() {
   return (
     <>
-      <DatePicker />
+      {/* <DatePicker /> */}
+      <Creating/>
     </>
   );
 }
