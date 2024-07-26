@@ -1,5 +1,5 @@
-import { ConfigProvider, DatePicker } from "antd";
-import Login from "./pages/login";
+import { ConfigProvider } from "antd";
+import Login from "./pages/Login";
 // import "./App.css";
 
 function App() {
