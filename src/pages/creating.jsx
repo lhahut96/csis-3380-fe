@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
-import "./page.css"
+import "./creating.css"
 
 const Creating = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
