@@ -1,5 +1,7 @@
 import { ConfigProvider } from "antd";
 import Login from "./pages/Login";
+import Buying from "./pages/Buying";
+import { Router, Routes } from "react-router-dom";
 // import "./App.css";
 
 function App() {
@@ -18,7 +20,6 @@ function App() {
         },
       }}
     >
-      <Login />
     </ConfigProvider>
   );
 }
