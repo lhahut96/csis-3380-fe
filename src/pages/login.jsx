@@ -1,5 +1,5 @@
 import { Input, Button } from "antd";
-import "./Login.css";
+import "./login.css";
 import { UserOutlined } from "@ant-design/icons";
 import { LockOutlined } from "@ant-design/icons";
 

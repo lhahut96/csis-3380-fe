@@ -1,16 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import Login from "./pages/Login.jsx";
 import "./index.css";
 
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LoginExample from "./pages/login-copy";
+import Login from "./pages/login.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "login-example",
+        element: <LoginExample />,
+      },
+    ],
   },
   {
     path: "/login",
@@ -21,7 +31,5 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <RouterProvider router={router} />
 );
