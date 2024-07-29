@@ -1,5 +1,5 @@
 import { ConfigProvider } from "antd";
-import Login from "./pages/Login";
+import { Outlet } from "react-router-dom/dist";
 // import "./App.css";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         },
       }}
     >
-      <Login />
+      <Outlet />
     </ConfigProvider>
   );
 }
