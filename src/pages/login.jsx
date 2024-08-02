@@ -1,17 +1,58 @@
 import { Input, Button } from "antd";
-import "./Login.css";
-import { UserOutlined } from "@ant-design/icons";
-import { LockOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import { getUsersApi, loginApi } from "../helper/fetchApi";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import "./login.css";
 
-const login = () => (
-  <div className="login-page">
-    <div className="card">
-      <p>WELCOME</p>
-      <Input placeholder="input username" prefix={<UserOutlined />}/>
-      <Input.Password placeholder="input password" prefix={<LockOutlined />}/>
-      <Button type="primary">Sign in</Button>
+const login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { messageApi } = useOutletContext();
+  const nav = useNavigate();
+
+  const handleLogin = async () => {
+    const longinData = {
+      username,
+      password,
+    };
+
+    try {
+      const data = await loginApi(longinData);
+      localStorage.setItem("accessToken", data.token);
+      messageApi.open({
+        type: "success",
+        content: "Success!",
+      });
+      nav("/buying");
+    } catch (error) {
+      messageApi.open({
+        type: "error",
+        content: "Failed: " + error.message,
+      });
+    }
+  };
+
+  return (
+    <div className="login-page">
+      <div className="card">
+        <p>WELCOME</p>
+        <Input
+          placeholder="input username"
+          prefix={<UserOutlined />}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <Input.Password
+          placeholder="input password"
+          prefix={<LockOutlined />}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button type="primary" onClick={handleLogin}>Sign in</Button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default login;

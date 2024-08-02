@@ -4,7 +4,9 @@ import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginExample from "./pages/login-copy";
-import Login from "./pages/Login.jsx";
+
+import Login from "./pages/login";
+import Buying from "./pages/buying";
 import Products from "./pages/Products.jsx";
 
 const router = createBrowserRouter([
@@ -21,12 +23,19 @@ const router = createBrowserRouter([
         element: <LoginExample />,
       },
       {
+        path: "buying",
+        element: <Buying />,
+      },
+  {
         path: "products",
         element: <Products />,
+  }
       },
     ],
-  },
+  }
 ]);
+
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />

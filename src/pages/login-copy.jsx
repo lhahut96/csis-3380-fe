@@ -2,7 +2,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
 import { useState } from "react";
 import { getUsersApi, loginApi } from "../helper/fetchApi";
-import "./Login.css";
+import "./login.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
