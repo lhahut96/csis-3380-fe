@@ -1,9 +1,11 @@
-import { ConfigProvider } from "antd";
+import { ConfigProvider, message } from "antd";
 import { Outlet } from "react-router-dom/dist";
 
 // import "./App.css";
 
 function App() {
+  const [messageApi, contextHolder] = message.useMessage();
+
   return (
     <ConfigProvider
       theme={{
@@ -19,7 +21,8 @@ function App() {
         },
       }}
     >
-      <Outlet />
+      { contextHolder }
+      <Outlet context={{ messageApi }}/>
     </ConfigProvider>
   );
 }

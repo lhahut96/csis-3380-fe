@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import axiosInstance from "./axios";
 
 const registerApi = async (data) => {
@@ -10,12 +11,8 @@ const registerApi = async (data) => {
 };
 
 const loginApi = async (data) => {
-  try {
     const response = await axiosInstance.post("/users/login", data);
     return response.data;
-  } catch (error) {
-    console.error("Error:", error);
-  }
 };
 
 const getUsersApi = async () => {
@@ -27,4 +24,9 @@ const getUsersApi = async () => {
   }
 };
 
-export { getUsersApi, loginApi, registerApi };
+const getProductsApi = async (data) => {
+  const response = await axiosInstance.get("/products", data);
+  return response.data;
+}
+
+export { getUsersApi, loginApi, registerApi, getProductsApi };

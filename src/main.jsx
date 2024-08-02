@@ -5,7 +5,8 @@ import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginExample from "./pages/login-copy";
-import Login from "./pages/login.jsx";
+import Login from "./pages/login";
+import Buying from "./pages/buying";
 
 const router = createBrowserRouter([
   {
@@ -20,12 +21,12 @@ const router = createBrowserRouter([
         path: "login-example",
         element: <LoginExample />,
       },
+      {
+        path: "buying",
+        element: <Buying />,
+      },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
+  }
 ]);
 
 
