@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import axiosInstance from "./axios";
 
 const registerApi = async (data) => {
@@ -11,8 +10,8 @@ const registerApi = async (data) => {
 };
 
 const loginApi = async (data) => {
-    const response = await axiosInstance.post("/users/login", data);
-    return response.data;
+  const response = await axiosInstance.post("/users/login", data);
+  return response.data;
 };
 
 const getUsersApi = async () => {

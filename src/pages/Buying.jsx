@@ -1,39 +1,38 @@
+import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import ProductCard from "../components/product-card";
-import { useState, useEffect } from "react";
-import { getProductsApi } from "../helper/fetchApi";
-import { useNavigate, useOutletContext } from "react-router-dom";
 import "../components/product-card.css";
+import { getProductApi } from "../helper/fetchApi";
 
-const buying = () => {
+const Buying = () => {
   const [products, setProducts] = useState([]);
   const { messageApi } = useOutletContext();
 
   useEffect(() => {
+    const load = async () => {
+      try {
+        const data = await getProductApi();
+        setProducts(data.docs);
+        console.log(data.docs);
+      } catch (error) {
+        messageApi.open({
+          type: "error",
+          content: "Error fetching and parsing data: " + error.message,
+        });
+      }
+    };
     load();
   }, []);
 
-  const load = async () => {
-    try {
-      const data = await getProductsApi();
-      setProducts(data.docs);
-      console.log(data.docs);
-    } catch (error) {
-      messageApi.open({
-        type: "error",
-        content: "Error fetching and parsing data: " + error.message,
-      });
-    }
-  };
-
-
   return (
-    <div className="buying-page">
-      <div className="title">
+    <div className='buying-page'>
+      <div className='title'>
         <h1>Limited Edition Luxury Car</h1>
       </div>
-      <div className="cards">
+      <div className='cards'>
         {products.map((product) => (
           <ProductCard
+            key={product.id}
             name={product.title}
             img={product.imageSrc}
             price={product.price}
@@ -44,4 +43,4 @@ const buying = () => {
   );
 };
 
-export default buying;
+export default Buying;

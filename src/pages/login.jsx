@@ -1,11 +1,11 @@
-import { Input, Button } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { Button, Input } from "antd";
 import { useState } from "react";
-import { getUsersApi, loginApi } from "../helper/fetchApi";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import "./login.css";
+import { loginApi } from "../helper/fetchApi";
+import "./Login.css";
 
-const login = () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { messageApi } = useOutletContext();
@@ -34,25 +34,27 @@ const login = () => {
   };
 
   return (
-    <div className="login-page">
-      <div className="card">
+    <div className='login-page'>
+      <div className='card'>
         <p>WELCOME</p>
         <Input
-          placeholder="input username"
+          placeholder='input username'
           prefix={<UserOutlined />}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <Input.Password
-          placeholder="input password"
+          placeholder='input password'
           prefix={<LockOutlined />}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button type="primary" onClick={handleLogin}>Sign in</Button>
+        <Button type='primary' onClick={handleLogin}>
+          Sign in
+        </Button>
       </div>
     </div>
   );
 };
 
-export default login;
+export default Login;
