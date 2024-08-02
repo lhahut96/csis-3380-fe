@@ -103,7 +103,7 @@ const Products = () => {
       dataIndex: "imageSrc",
       key: "imageSrc",
       render: (imageUrl) => (
-        <img alt={imageUrl} src={imageUrl} width={20} height={20} />
+        <img alt={imageUrl} src={imageUrl} width={40} height={40} />
       ),
     },
     {
