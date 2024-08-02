@@ -1,9 +1,18 @@
 import { ConfigProvider, message } from "antd";
-import { Outlet } from "react-router-dom/dist";
+import { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom/dist";
 
 // import "./App.css";
 
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (!accessToken) {
+      navigate("/login");
+    }
+  }, []);
   const [messageApi, contextHolder] = message.useMessage();
 
   return (
@@ -21,8 +30,8 @@ function App() {
         },
       }}
     >
-      { contextHolder }
-      <Outlet context={{ messageApi }}/>
+      {contextHolder}
+      <Outlet context={{ messageApi }} />
     </ConfigProvider>
   );
 }

@@ -20,6 +20,7 @@ const Login = () => {
     try {
       const data = await loginApi(longinData);
       localStorage.setItem("accessToken", data.token);
+      localStorage.setItem("username", data.username);
       messageApi.open({
         type: "success",
         content: "Success!",
