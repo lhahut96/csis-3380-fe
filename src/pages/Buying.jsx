@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import ProductCard from "../components/product-card";
-import "../components/product-card.css";
 import { getProductApi } from "../helper/fetchApi";
+import "../pages/buying.css";
 
 const Buying = () => {
   const [products, setProducts] = useState([]);
@@ -25,6 +25,7 @@ const Buying = () => {
   }, []);
 
   return (
+    <>
     <div className='buying-page'>
       <div className='title'>
         <h1>Limited Edition Luxury Car</h1>
@@ -40,6 +41,7 @@ const Buying = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
