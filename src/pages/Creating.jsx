@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
+import { DollarOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
-import "./page.css"
+import "./creating.css"
 
 const Creating = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
