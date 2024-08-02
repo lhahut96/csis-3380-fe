@@ -24,9 +24,22 @@ const getUsersApi = async () => {
   }
 };
 
-const getProductsApi = async (data) => {
-  const response = await axiosInstance.get("/products", data);
-  return response.data;
-}
+const getProductApi = async () => {
+  try {
+    const response = await axiosInstance.get("/products");
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
 
-export { getUsersApi, loginApi, registerApi, getProductsApi };
+const deleteProductApi = async (id) => {
+  try {
+    const response = await axiosInstance.delete(`/products/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+export { deleteProductApi, getProductApi, getUsersApi, loginApi, registerApi };
