@@ -18,7 +18,6 @@ const Header = () => {
 
     return (
         <div className="navbar">
-            
             <a href="#user">Lucas</a>
             <a href="#" onClick={handleLogout}>Log out</a>
         </div>

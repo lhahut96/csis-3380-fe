@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { DollarOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import "./creating.css"
 

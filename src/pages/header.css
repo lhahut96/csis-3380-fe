@@ -4,6 +4,7 @@
 
 body {
     margin: 0;
+    padding: 0px;
     font-family: Arial, sans-serif;
 }
 
@@ -20,13 +21,14 @@ body {
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
+    border-right: white solid 1px;
 }
 
 .navbar a:hover {
     background-color: #575757;
 }
 .navbar a:not(:last-child)::after {
-    content: '|';
+    /* content: '|'; */
     color: white;
     padding-left: 10px;
     padding-right: 10px;
