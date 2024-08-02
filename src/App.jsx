@@ -11,6 +11,10 @@ function App() {
     const accessToken = localStorage.getItem("accessToken");
     if (!accessToken) {
       navigate("/login");
+    } else if (localStorage.getItem("username") === "admin") {
+      navigate("/products");
+    } else {
+      navigate("/buying");
     }
   }, []);
   const [messageApi, contextHolder] = message.useMessage();
