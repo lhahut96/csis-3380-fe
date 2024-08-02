@@ -25,7 +25,11 @@ const Login = () => {
         type: "success",
         content: "Success!",
       });
-      nav("/buying");
+      if (localStorage.getItem("username") === "admin") {
+        nav("/products");
+      } else {
+        nav("/buying");
+      }
     } catch (error) {
       messageApi.open({
         type: "error",
