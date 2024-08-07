@@ -16,16 +16,16 @@ const loginApi = async (data) => {
 
 const getUsersApi = async () => {
   try {
-    const response = await axiosInstance.get("/users");
+    const response = await axiosInstance.get(`/users`);
     return response.data;
   } catch (error) {
     console.error("Error:", error);
   }
 };
 
-const getProductApi = async () => {
+const getProductApi = async (name = "") => {
   try {
-    const response = await axiosInstance.get("/products");
+    const response = await axiosInstance.get(`/products?name=${name}`);
     return response.data;
   } catch (error) {
     console.error("Error:", error);

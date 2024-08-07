@@ -16,6 +16,12 @@ const Products = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState("");
+  const { Search } = Input;
+
+  const onSearch = async (value) => {
+    const response = await getProductApi(value);
+    setData(response.docs);
+  };
 
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -148,12 +154,12 @@ const Products = () => {
     <>
       <Header />
       <section className='products flex p-10 flex-col justify-center'>
-        <div className='control-handler flex justify-end mb-10'>
-          {/* <Search
+        <div className='control-handler flex justify-between mb-10'>
+          <Search
             placeholder='input search text'
-            onSearch={() => {}}
+            onSearch={onSearch}
             style={{ width: 200 }}
-          /> */}
+          />
           <Button
             type='primary'
             onClick={() => {
